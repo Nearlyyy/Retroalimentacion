@@ -1,0 +1,58 @@
+1. Crear una calculadora que realice las operaciones basicas
+
+package calculadora;
+import java.util.Scanner;
+
+public class Calculadora {
+    
+    public static int sumar(int n1, int n2){
+        return n1 + n2;
+    }
+    
+    public static int restar(int n1, int n2){
+        return n1 - n2;
+    }
+    
+    public static int multiplicar(int n1, int n2){
+        return n1 * n2;
+    }
+    
+    public static int dividir(int n1, int n2){
+        return n1 / n2;
+    }
+    
+    public static int pedirNumero(Scanner sc){
+        System.out.print("Ingrese un número: ");
+        int numero = sc.nextInt();
+        
+        return numero;
+    }
+    
+    public static void calculadora(int opcion, int n1, int n2){      
+        switch(opcion){
+            case 1: System.out.println("La suma es "+sumar(n1, n2)); break;
+            case 2: System.out.println("La resta es: "+restar(n1, n2)); break;
+            case 3: System.out.println("La multiplicacion es "+multiplicar(n1, n2)); break;
+            case 4: System.out.println("La division entera es: "+dividir(n1, n2)); break;
+            default: System.out.println("Opcion no válida");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner (System.in);
+        
+        int n1 = pedirNumero(sc);
+        int n2 = pedirNumero(sc);
+        
+        do {
+            System.out.print("1. Suma\n2. Resta\n3. Multiplicacion\n4. Division\n0. Salir\nOpcion: ");
+            int opcion = sc.nextInt();
+            
+            if (opcion == 0){
+                break;
+            }
+            
+            calculadora(opcion, n1, n2);
+        } while (true);
+    }    
+}
