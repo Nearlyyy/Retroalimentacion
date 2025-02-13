@@ -1,0 +1,53 @@
+Programa 7: Crear un programa que gire una matriz en sentido horaria 90°
+
+package rotar.matriz;
+
+import java.util.Scanner;
+
+public class RotarMatriz {
+
+    static void rotacion(int[][] matriz, int[][] rotativa) {
+       int n = matriz.length, col = n - 1;
+    
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                rotativa[j][col - i] = matriz[i][j]; // Rotar 90°
+            }
+        }
+    }
+
+    
+    static void imprimirMatriz(int[][] matriz){
+        for (int fila[]: matriz) {
+            for (int elemento: fila) {
+                System.out.print(elemento+" ");
+            }
+            System.out.println("");
+        }
+    }
+    
+    static void llenarMatriz(int[][] matriz, Scanner sc){
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.print("Elemento ["+i+"]["+j+"]: ");
+                matriz[i][j] = sc.nextInt();
+            }
+        }
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner (System.in);
+        
+        System.out.print("Ingrese las dimensiones de las matriz (n x n): "); int n = sc.nextInt();
+        int matriz[][] = new int[n][n];
+        int rotativa[][] = new int[n][n];
+        
+        llenarMatriz(matriz, sc);
+        System.out.println("Matriz original");
+        imprimirMatriz(matriz);
+        System.out.println("Matriz rotada");
+        rotacion(matriz, rotativa);
+        imprimirMatriz(rotativa);
+        
+    }    
+}
