@@ -1,0 +1,26 @@
+Programa 5: Crear un programa que convierta un número decimal a binario
+
+package convertir.a.binario;
+import java.util.Scanner;
+
+public class ConvertirABinario {
+    
+    static String convertirABinario(int n){
+        String binario = "";
+        while(n > 0){
+            int bit = n % 2;
+            binario = bit + binario;
+            n /= 2;
+        }
+        return binario;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner (System.in);
+        
+        System.out.print("Ingrese un numero: ");
+        int numero = sc.nextInt();
+        
+        System.out.println(numero+" en binario es "+convertirABinario(numero));
+    }    
+}
