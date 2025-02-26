@@ -1,0 +1,42 @@
+package asteriscos;
+import java.util.Scanner;
+
+/*
+Programa 18: Crear un programa de Java que tome un valor 'n' y dibuje una cruz de asteriscos
+
+        *         
+        *         
+        *         
+        *         
+* * * * * * * * * 
+        *         
+        *         
+        *         
+        *         
+
+*/
+
+public class Asteriscos {
+    
+    static void imprimirFigura(int altura){
+        for (int i = 0; i < altura; i++) {
+            for (int j = 0; j < altura; j++) {
+                if(i == (altura / 2) || j == (altura / 2)){
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println("");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Ingrese la altura de la cruz: ");
+        int altura = sc.nextInt();
+        
+        imprimirFigura(altura);
+    }   
+}
