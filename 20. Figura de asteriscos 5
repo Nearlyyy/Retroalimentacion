@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+/*
+Programa 21: Crear un programa de Java que tome un valor 'n' y dibuje una cruz de asteriscos
+
+* * * * * * * * * 
+* *           * * 
+*   *       *   * 
+*     *   *     * 
+*       *       * 
+*     *   *     * 
+*   *       *   * 
+* *           * * 
+* * * * * * * * *    
+
+*/
+
+public class Bucles {
+
+    static void imprimirFigura(int altura){
+        int k = altura - 1;
+
+        for (int i = 0; i < altura; i++) {
+            for (int j = 0; j < altura; j++) {
+                if(i == 0 || i == (altura - 1) || j == 0 || j == (altura - 1) || j == i || j == k){
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                } 
+            }
+            k--;
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner (System.in);
+
+        System.out.print("Ingrese la altura de la figura: ");
+        int altura = sc.nextInt();
+
+        imprimirFigura(altura);
+    }
+}
