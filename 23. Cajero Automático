@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+/*
+ Programa 23: Implemente un cajero automatico simple en Java que me permita retirar, depositar 
+ y ver mi saldo actual (en dólares)
+
+ */
+
+public class Tarea {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner (System.in);
+        
+        double saldoInicial = 0, retiro, deposito;
+        int opcion;
+        do {
+            System.out.println("Ingrese una opcion\n1. Retirar dinero\n2.Depositar dinero\n3. Ver saldo actual\n4. Salir\nOpcion: ");
+            opcion = sc.nextInt();
+
+            if(opcion == 4){
+                System.out.println("Hasta pronto!");
+                break;
+            }
+
+            if(opcion == 1){
+                if(saldoInicial <= 0){
+                    System.out.println("Usted no posee dinero en su cuenta, por favor, haga un deposito primero");
+                } else {
+                    System.out.print("Ingrese cuanto dinero desea retirar: ");
+                    retiro = sc.nextDouble();
+
+                    if(retiro <= saldoInicial && retiro > 0){
+                        saldoInicial -= retiro;
+                        System.out.println("Se han retirado "+String.format("$%,.2f", retiro)+" dólares");
+                    } else {
+                        System.out.println("No se puede retirar esta cantidad");
+                    }
+                }
+                System.out.println("Su saldo actual es de "+String.format("$%,.2f", saldoInicial)+" dólares");
+
+            } else if (opcion == 2){
+                System.out.println("Ingrese cuanto dinero desea depositar: ");
+                deposito = sc.nextDouble();
+
+                if(deposito > 0){
+                    saldoInicial += deposito;
+                    System.out.println("Se han depositado "+String.format("$%,.2f", deposito)+" dólares");
+                } else {
+                    System.out.println("Por favor, ingrese una cantidad válida");
+                }
+                System.out.println("Su saldo actual es de "+String.format("$%,.2f", saldoInicial)+" dólares");
+
+            } else if (opcion == 3){
+                System.out.println("Su saldo actual es de "+String.format("$%,.2f", saldoInicial)+" dólares");
+            } else {
+                System.out.println("Opcion no válida");
+            }
+
+
+        } while (true);
+    }
+}
