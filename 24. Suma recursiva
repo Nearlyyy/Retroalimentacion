@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+/*
+ Programa 24: Implemente una funcion recursiva que tome un valor 'n' y sume los numeros desde 1 hasta n
+ */
+
+public class Tarea {
+
+    static int sumaRecursiva(int n){
+        if(n == 0){
+            return 0;
+        } else if (n == 1){
+            return 1;
+        }
+        return n + sumaRecursiva(n - 1);
+    }
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner (System.in);
+        
+        System.out.print("Ingrese cuantos numeros consecutivos desde sumar (1 - n): ");
+        int n = sc.nextInt();
+
+        System.out.println("La suma de los numeros de 1 a "+n+" es: "+sumaRecursiva(n));
+    }
+}
