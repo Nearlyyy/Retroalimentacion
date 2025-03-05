@@ -1,0 +1,23 @@
+import javax.swing.JOptionPane;
+
+class Programa {
+    /*
+    Programa 27: Escriba una programa de Java que calcule la suma de los digitos de un 
+    numero ingresado, esto mediante una funcion recursiva
+
+    Ejemplo:
+    numero = 123 -> 1 + 2 + 3 = 6
+    */
+
+    static int sumarDigitos(int numero){
+        if(numero == 0){
+            return 0;
+        }
+        return numero % 10 + sumarDigitos(numero / 10);
+    }
+    public static void main(String[] args) {
+        int numero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un numero"));
+
+        System.out.println("La suma de los digitos de "+numero+" es "+sumarDigitos(numero));
+    }
+} 
