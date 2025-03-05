@@ -1,0 +1,22 @@
+import javax.swing.JOptionPane;
+
+class Programa {
+    /*
+    Programa 26: Escriba una programa de Java que calcule el factorial de un numero
+    mediante una funcion recursiva. El factorial de un numero 'n' se define como
+    
+    n! = n * (n - 1) * (n - 2) * (n - 3)... * 1
+    */
+
+    static int factorialRecursivo(int numero){
+        if(numero == 0 || numero == 1){
+            return 1;
+        }
+        return numero * factorialRecursivo(numero - 1);
+    }
+    public static void main(String[] args) {
+        int numero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un numero"));
+
+        System.out.println("El factorial de "+numero+" es "+factorialRecursivo(numero));
+    }
+} 
