@@ -1,0 +1,44 @@
+class Programa {
+    /*
+    Programa 25: Escriba una programa de Java que tome un arreglo de numeros y me diga cuantas veces 
+    aparece un numero en el arreglo, del siguiente modo
+    
+    El elemento 1 se repite 3 veces
+    El elemento 2 se repite 2 veces
+    El elemento 3 se repite 6 veces
+    El elemento 9 se repite 1 vez
+    */
+
+    static boolean estaRepetido(int index, int arreglo[], int elemento){
+        for (int i = 0; i < index; i++) {
+            if(arreglo[i] == elemento){
+                return true;
+            }
+        }
+        return false;
+    }
+    public static void main(String[] args) {
+        int[] arreglo = {1,1,1,2,2,3,3,3,3,3,3,9};
+        int contador;
+
+        for (int i = 0; i < arreglo.length; i++) {
+            int elemento = arreglo[i]; 
+            contador = 0;
+            
+            if(estaRepetido(i, arreglo, elemento)){
+                continue;
+            } else {
+                for (int j = 0; j < arreglo.length; j++) {
+                    if(elemento == arreglo[j]){
+                        contador += 1;
+                    }
+                }
+            }
+            if(contador == 1){
+                System.out.println("El elemento "+elemento+" se repite "+contador+" vez");
+            } else {
+                System.out.println("El elemento "+elemento+" se repite "+contador+" veces");
+            }
+        }
+    }
+} 
